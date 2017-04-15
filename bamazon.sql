@@ -1,33 +1,49 @@
-/*
-Create a MySQL Database called Bamazon.
-Then create a Table inside of that database called products.
-The products table should have each of the following columns:
-item_id (unique id for each product)
-product_name (Name of product)
-department_name
-price (cost to customer)
-stock_quantity (how much of the product is available in stores)
-Populate this database with around 10 different products. (i.e. Insert "mock" data rows into this database and table).
-Then create a Node application called bamazonCustomer.js. Running this application will first display all of the items available for sale. Include the ids, names, and prices of products for sale.
-The app should then prompt users with two messages.
-The first should ask them the ID of the product they would like to buy.
-The second message should ask how many units of the product they would like to buy.
-Once the customer has placed the order, your application should check if your store has enough of the product to meet the customer's request.
-If not, the app should log a phrase like Insufficient quantity!, and then prevent the order from going through.
-However, if your store does have enough of the product, you should fulfill the customer's order.
-This means updating the SQL database to reflect the remaining quantity.
-Once the update goes through, show the customer the total cost of their purchase.
-*/
 -- Created the "bamazon" database --
 CREATE DATABASE bamazon;
 
 -- Makes it so all the following code will affect bamazon database --
 USE bamazon;
 
-CREATE TABLE products{
+CREATE TABLE products (
 	item_id INT(11) AUTO_INCREMENT NOT NULL,
 	product_name VARCHAR(80) NOT NULL,
 	department_name VARCHAR(80) NOT NULL,
 	price DECIMAL(11,2) NOT NULL,
 	stock_quantity INT(11) NOT NULL,
-}
+	PRIMARY KEY (item_id)
+);
+
+SELECT * FROM products;
+
+INSERT INTO `products` (product_name, department_name, price, stock_quantity)
+VALUES 
+("Apple MacBook Pro 15.4-inch ", "Computers", 2249.00, 100),
+("Lenovo Ideapad 700", "Computers", 962.91, 1000),
+("Code: The Hidden Language..", "Books", 19.95, 80),
+("Cracking the Tech Career: Insider Advice on Landing a Job", "Books", 17.63, 50),
+("Apple iPhone 7 Plus Unlocked Phone 32 GB", "Cell Phones & Accessories", 829.00, 41),
+("Samsung Galaxy S7 G930V 32GB Smartphone", "Cell Phones & Accessories", 355.00, 27),
+("THE PURPLE PILLOW", "Home & Kitchen", 99.00, 50),
+("KitchenAid  5-Qt", "Home & Kitchen", 280.45, 100),
+("DeepBassX Beats HD Stereo Sound Headphones", "Cell Phones & Accessories", 159.95, 50),
+("Fitbit Charge 2 Heart Rate Black", "Electronics", 148.85, 45);
+
+SELECT * FROM products;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
